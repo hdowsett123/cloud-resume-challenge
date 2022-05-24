@@ -196,7 +196,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   aliases = [var.domain_name]
 
   default_cache_behavior {
-    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "P>
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = local.s3_origin_id
 
@@ -224,7 +224,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     cloudfront_default_certificate = true
-    acm_certificate_arn            = aws_acm_certificate.harry-dowsett-resume.a>
+    acm_certificate_arn            = aws_acm_certificate.harry-dowsett-resume.arn
     ssl_support_method             = "sni-only"
   }
 }
@@ -325,7 +325,7 @@ resource "aws_iam_policy" "dynamo-policy" {
               "dynamodb:UpdateItem",
               "dynamodb:DeleteItem"
             ],
-            "Resource": "arn:aws:dynamodb:us-east-1:640138429565:table/cloud-re>
+            "Resource": "arn:aws:dynamodb:us-east-1:640138429565:table/cloud-resume-challenge"
         }
     ]
 }
@@ -383,7 +383,7 @@ resource "aws_api_gateway_rest_api" "resume-api" {
             httpMethod           = "GET"
             payloadFormatVersion = "1.0"
             type                 = "HTTP_PROXY"
-            uri                  = "https://ip-ranges.amazonaws.com/ip-ranges.j>
+            uri                  = "https://ip-ranges.amazonaws.com/ip-ranges.json"
           }
         }
       }
