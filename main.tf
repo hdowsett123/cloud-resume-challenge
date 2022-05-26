@@ -8,14 +8,6 @@ terraform {
       source = "hashicorp/random"
     }
   }
-
-  cloud {
-    organization = "harry-terraform"
-
-    workspaces {
-      name = "terraform-remote"
-    }
-  }
 }
 
 #s3
