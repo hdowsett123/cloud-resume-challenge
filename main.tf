@@ -461,8 +461,8 @@ resource "aws_api_gateway_integration" "get-lambda_root" {
 
 resource "aws_api_gateway_deployment" "get-api" {
   depends_on = [
-    "aws_api_gateway_integration.get-lambda",
-    "aws_api_gateway_integration.get-lambda_root",
+    aws_api_gateway_integration.get-lambda,
+    aws_api_gateway_integration.get-lambda_root,
   ]
 
   rest_api_id = aws_api_gateway_rest_api.resume-api.id
