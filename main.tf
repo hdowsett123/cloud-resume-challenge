@@ -48,38 +48,38 @@ locals {
 resource "aws_s3_bucket_object" "index_html" {
   bucket       = var.bucket_name
   key          = "index.html"
-  source       = "~/cloud-resume-challenge/website/index.html"
+  source       = "cloud-resume-challenge/website"
   content_type = "text/html"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() fu>
   # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("~/cloud-resume-challenge/website/index.html")
+  etag = filemd5("cloud-resume-challenge/website")
 }
 
 resource "aws_s3_bucket_object" "index_css" {
   bucket       = var.bucket_name
   key          = "index.css"
-  source       = "~/cloud-resume-challenge/website/index.css"
+  source       = "cloud-resume-challenge/website"
   content_type = "text/css"
 
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() fu>
   # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("~/cloud-resume-challenge/website/index.css")
+  etag = filemd5("cloud-resume-challenge/website")
 }
 
 resource "aws_s3_bucket_object" "error_html" {
   bucket       = var.bucket_name
   key          = "error.html"
-  source       = "~/cloud-resume-challenge/website/error.html"
+  source       = "cloud-resume-challenge/website"
   content_type = "text/html"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() fu>
   # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("~/cloud-resume-challenge/website/error.html")
+  etag = filemd5("cloud-resume-challenge/website")
 }
 
 resource "aws_iam_policy" "api_gw-policy" {
