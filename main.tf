@@ -60,26 +60,26 @@ resource "aws_s3_bucket_object" "index_html" {
 resource "aws_s3_bucket_object" "index_css" {
   bucket       = var.bucket_name
   key          = "index.css"
-  source       = "cloud-resume-challenge/website/"
+  source       = "./website/index.cs"
   content_type = "text/css"
 
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() fu>
   # etag = "${md5(file("path/to/file"))}"
-  # etag = filemd5("cloud-resume-challenge/website/")
+  etag = filemd5("./website/index.css")
 }
 
 resource "aws_s3_bucket_object" "error_html" {
   bucket       = var.bucket_name
   key          = "error.html"
-  source       = "cloud-resume-challenge/website/"
+  source       = "./website/error.html"
   content_type = "text/html"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() fu>
   # etag = "${md5(file("path/to/file"))}"
-  # etag = filemd5("cloud-resume-challenge/website/")
+  etag = filemd5("./website/error.html")
 }
 
 resource "aws_iam_policy" "api_gw-policy" {
