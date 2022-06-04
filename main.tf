@@ -60,7 +60,7 @@ resource "aws_s3_bucket_object" "index_html" {
 resource "aws_s3_bucket_object" "index_css" {
   bucket       = var.bucket_name
   key          = "index.css"
-  source       = "./website/index.cs"
+  source       = "./website/index.css"
   content_type = "text/css"
 
 
