@@ -1,14 +1,5 @@
 #Github Workspace
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-    }
-    random = {
-      source = "hashicorp/random"
-    }
-  }
-}
+
 
 #s3
 resource "aws_s3_bucket" "resume-website" {
