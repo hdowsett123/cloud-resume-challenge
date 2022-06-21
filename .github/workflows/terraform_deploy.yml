@@ -32,12 +32,13 @@ jobs:
     - name: Install Boto3
       run: |
         pip install boto3
+        pip install boto3.dynamodb.conditions
     - name: Run get-function tests
       run: |
         pytest ./get-function/app.py
-    #- name: Run put-function tests
-      #run: |
-        #pytest ./put-function/app.py
+    - name: Run put-function tests
+      run: |
+        pytest ./put-function/app.py
 
   terraform:
     name: Terraform Build
