@@ -8,8 +8,8 @@ on:
       - "main"
     
 jobs:
-  test:
-    name: 'Test-Infra'
+  test-infra:
+    name: test-infra
     runs-on: ubuntu-latest
 
     strategy:
@@ -44,8 +44,8 @@ jobs:
         run: pytest ./put-function/app.py
 
   terraform:
-    name: 'Terraform Build'
-    needs: 'Test-Infra'
+    name: Terraform Build
+    needs: test-infra
     runs-on: ubuntu-latest
     environment: cloud-resume-challenge
     
