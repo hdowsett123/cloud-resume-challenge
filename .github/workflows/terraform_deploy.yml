@@ -8,8 +8,9 @@ on:
       - "main"
     
 jobs:
-  name: 'Test-Infra'
-  runs-on: ubuntu-latest
+  test:
+    name: 'Test-Infra'
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
