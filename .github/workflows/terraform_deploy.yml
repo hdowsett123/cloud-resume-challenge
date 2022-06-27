@@ -40,7 +40,7 @@ jobs:
         pip install boto3
     - name: Test with Pytest
       run: |
-        pytest ./tests/get-function-test/test_get.py
+        pytest ./tests/get-function-test/test_app.py
 
 
   terraform:
