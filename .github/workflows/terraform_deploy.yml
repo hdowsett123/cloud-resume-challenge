@@ -10,7 +10,6 @@ on:
 jobs:
   terraform:
     name: Terraform Build
-    needs: test-infra
     runs-on: ubuntu-latest
     environment: cloud-resume-challenge
     
